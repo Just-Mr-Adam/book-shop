@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Мир книг - Каталог</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <head>
+        <h1>Мир книг</h1>
+
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+        </ul>
+
+        <hr>
+
+        <h2>Каталог книг</h2>
+    </head>
+    <main>
+        <select id="genreFilter">
+            <option value="all">Все жанры</option>
+            <option value="epic">Роман-эпопея</option>
+            <option value="psychological">Психологический роман</option>
+            <option value="mystery">Роман-мистерия</option>
+            <option value="social">Социальный роман</option>
+            <option value="poem">Поэма</option>
+        </select>
+        <div class="_catalog">
+            
+        </div>
+        <div class="_card">
+            <hr>
+            <h3>Корзина</h3>
+            <div id="cartItems"></div>
+            <div id="cartTotal">Итого: 0 Р</div>
+            <button id="payButton">Оплатить</button>
+        </div>     
+    </main>
+    <hr />
+    <footer>
+        <p>Связаться с нами: BookWorld@mail.com</p>
+        <p>© Все права защищены</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
