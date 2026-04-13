@@ -44,6 +44,7 @@ document.getElementById("genreFilter").addEventListener("change", event => {
 
 //Корзина
 let cart = [];
+loadCartFromLocalStorage();
 
 function renderCart() {
     let cartItem = document.getElementById("cartItems");
@@ -74,6 +75,7 @@ function renderCart() {
         button.onclick = () => {
             let id = parseInt(button.getAttribute("data-id"));
             removeFromCart(id);
+            saveCartToLocalStorage()
         };
     });
 }
@@ -101,6 +103,7 @@ function addToCart(bookId) {
         });
     }
     renderCart();
+    saveCartToLocalStorage()
 }
 
 function removeFromCart(bookId) {
@@ -112,6 +115,7 @@ function removeFromCart(bookId) {
     }
     cart = newCart;
     renderCart();
+    saveCartToLocalStorage()
 }
 
 document.getElementById("payButton").addEventListener("click", () => {
@@ -121,5 +125,18 @@ document.getElementById("payButton").addEventListener("click", () => {
         alert("Покупка прошла успешно");
         cart = [];
         renderCart();
+        saveCartToLocalStorage()
     }
 });
+
+function saveCartToLocalStorage() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function loadCartFromLocalStorage() {
+    const saved = localStorage.getItem("cart");
+    if (saved) {
+        cart = JSON.parse(saved);
+        renderCart();
+    }
+}
